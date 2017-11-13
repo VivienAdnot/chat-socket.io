@@ -21,8 +21,13 @@
         <script>
             var socket = io.connect('http://localhost:8050');
             var pseudo = prompt('Quel est votre pseudo ?');
+            socket.emit('new-user', pseudo);
 
-            socket.on('message-fromserver', function(message) {
+            socket.on('new-user', function(username) {
+                addUser(username);
+            });
+
+            socket.on('new-message', function(message) {
                 addMessage(message);
             });
 
@@ -32,9 +37,15 @@
                     message: $("#newMessage").val()
                 };
 
-                socket.emit('message-toserver', newMessage);
+                socket.emit('new-message', newMessage);
                 addMessage(newMessage);
+
+                $("#newMessage").val("").focus();
             });
+
+            function addUser(username) {
+                $("<li><i>" + username + " a rejoint le chat</i></li>").appendTo("#messages");
+            }
 
             function addMessage(messageObj) {
                 $("<li><strong>" + messageObj.pseudo + "</strong> " + messageObj.message + "</li>").appendTo("#messages");

@@ -12,8 +12,11 @@ var server = http.createServer(function(req, res) {
 var io = socketIO.listen(server);
 
 io.sockets.on('connection', function (socket) {
-    socket.on('message-toserver', function (message) {
-        socket.broadcast.emit('message-fromserver', message);
+    socket.on('new-user', function (username) {
+        socket.broadcast.emit('new-user', username);
+    });
+    socket.on('new-message', function (message) {
+        socket.broadcast.emit('new-message', message);
     });
 });
 
