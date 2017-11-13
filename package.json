@@ -1,0 +1,10 @@
+{
+  "name": "chat",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "~4.11.0",
+    "socket.io": "^2.0.4"
+  },
+  "author": "Vivien Adnot <vivien.adnot@gmail.com>",
+  "description": "Un chat server avec socket.io"
+}
