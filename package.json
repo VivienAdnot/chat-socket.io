@@ -13,5 +13,8 @@
   "author": "Vivien Adnot <vivien.adnot@gmail.com>",
   "description": "Un chat server avec socket.io",
   "license": "BSD",
-  "main": "app-chat.js"
+  "main": "app-chat.js",
+  "scripts": {
+      "start": "node app-chat.js"
+  }
 }

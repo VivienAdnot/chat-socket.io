@@ -19,7 +19,10 @@
         <script src="/socket.io/socket.io.js"></script>
 
         <script>
-            var socket = io.connect('http://localhost:8050');
+            var ioLocation = window.location.hostname + ":" + window.location.port;
+            console.log("ioLocation", ioLocation);
+
+            var socket = io.connect(ioLocation);
             var pseudo = prompt('Quel est votre pseudo ?');
             socket.emit('new-user', pseudo);
 
