@@ -5,6 +5,9 @@
     "express": "~4.11.0",
     "socket.io": "^2.0.4"
   },
+  "devDependencies": {},
   "author": "Vivien Adnot <vivien.adnot@gmail.com>",
-  "description": "Un chat server avec socket.io"
+  "description": "Un chat server avec socket.io",
+  "license": "BSD",
+  "main": "app-chat.js"
 }
