@@ -11,11 +11,6 @@ var server = http.createServer(function(req, res) {
 
 var io = socketIO.listen(server);
 
-// io.configure(function () {
-//     io.set("transports", ["xhr-polling"]);
-//     io.set("polling duration", 10);
-// });
-
 io.sockets.on('connection', function (socket) {
     socket.on('new-user', function (username) {
         socket.broadcast.emit('new-user', username);
